@@ -1,0 +1,163 @@
+/* 
+TP 2 - Fait par Denis Birnaz
+Toutes les informations sont utilisées uniquement pour les études
+Les photos sont prises dans la banque de photos gratuites : http://www.lifeofpix.com/
+*/
+body {
+  margin: 0;
+  padding: 0;
+  background: #dce5e2;
+  font-family: 'Open Sans';
+  color: #3d524c;
+}
+header,
+footer {
+  width: 100%;
+  height: 100px;
+  background: #85A39A;
+  text-align: center;
+}
+header {
+  border-bottom: 5px solid #3d524c;
+}
+footer {
+  border-top: 5px solid #3d524c;
+}
+h1 {
+  font-size: 3em;
+  padding-top: 20px;
+  margin: 0;
+  color: #fff;
+  text-shadow: 2px 2px 2px #3d524c;
+}
+h2 {
+  margin: 0;
+  font-size: 1em;
+  padding-top: 20px;
+}
+section {
+  margin: 100px auto 50px auto;
+  padding: 20px;
+  width: 800px;
+  height: 800px;
+  position: relative;
+}
+section h2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: .7em;
+}
+section h2 a {
+  color: #3d524c;
+}
+@keyframes tremur {
+  0% {
+    transform: rotate(-2deg) translate(3px, 2px);
+  }
+  50% {
+    transform: rotate(2deg) translate(0px, -2px);
+  }
+  100% {
+    transform: rotate(0deg) translate(-2px, 0px);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(2);
+  }
+}
+input {
+  display: none;
+}
+input + label {
+  text-align: center;
+  width: 250px;
+  height: 180px;
+  display: block;
+  position: absolute;
+  z-index: 50;
+  transition: all .5s;
+  background-size: cover;
+  cursor: pointer;
+}
+input + label:hover {
+  animation: tremur .2s infinite alternate;
+}
+input + label > img {
+  vertical-align: middle;
+  border: 5px solid #fff;
+  width: 250px;
+  height: 180px;
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+}
+input:checked + label {
+  filter: none;
+  animation: none;
+  width: 97.7%;
+  height: 97.7%;
+  top: -50px;
+  left: 0;
+  z-index: 100;
+  margin: 10px auto;
+}
+input:checked + label > img {
+  animation: rotate 1s;
+  animation-fill-mode: forwards;
+}
+input:not(:checked) + label:not(:hover) {
+  filter: grayscale(100%);
+}
+.label1 {
+  top: 0;
+  left: 0;
+}
+.label2 {
+  top: 0;
+  left: 280px;
+}
+.label3 {
+  top: 0;
+  left: 560px;
+}
+.label4 {
+  top: 210px;
+  left: 0;
+}
+.label5 {
+  top: 210px;
+  left: 280px;
+}
+.label6 {
+  top: 210px;
+  left: 560px;
+}
+.label7 {
+  top: 420px;
+  left: 0;
+}
+.label8 {
+  top: 420px;
+  left: 280px;
+}
+.label9 {
+  top: 420px;
+  left: 560px;
+}
+.label10 {
+  top: 630px;
+  left: 0;
+}
+.label11 {
+  top: 630px;
+  left: 280px;
+}
+.label12 {
+  top: 630px;
+  left: 560px;
+}

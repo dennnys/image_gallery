@@ -1,0 +1,140 @@
+/* 
+TP 2 - Fait par Denis Birnaz
+Toutes les informations sont utilisées uniquement pour les études
+Les photos sont prises dans la banque de photos gratuites : http://www.lifeofpix.com/
+*/
+@color-theme : #85A39A; // colore de base
+@color-bg-footer : @color-theme;
+@color-bg : lighten(@color-theme, 30%);
+@color-tex : darken(@color-theme,30%);
+@color-ligne : @color-tex;
+@fonte-fam : 'Open Sans';
+@color-white : #fff;
+@color-shadow : @color-tex;
+
+body {
+	margin: 0;
+	padding: 0;
+	background: @color-bg;
+	font-family: @fonte-fam;
+	color: @color-tex;
+}
+header, footer {
+	width: 100%;
+	height: 100px;
+	background: @color-bg-footer;
+	text-align: center;
+}
+header {
+	border-bottom: 5px solid @color-ligne;
+}
+footer {
+	border-top: 5px solid @color-ligne;
+}
+h1 {
+	font-size: 3em;
+	padding-top: 20px;
+	margin: 0;
+	color: @color-white;
+	text-shadow: 2px 2px 2px @color-shadow;
+}
+h2 {
+	margin: 0;
+	font-size: 1em;
+	padding-top: 20px;
+}
+section {
+	margin: 100px auto 50px auto;
+	padding: 20px;
+	width: 800px;
+	height: 800px;
+	position: relative;
+	h2 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: .7em;
+		a {
+	color:@color-tex;
+	}
+	}
+}
+// animation detremblement
+@keyframes tremur{
+		0%{ transform: rotate(-2deg) translate(3px, 2px)}
+		50%{ transform: rotate(2deg) translate(0px, -2px)}
+		100%{ transform: rotate(0deg) translate(-2px, 0px)}
+}
+// animation de rotate
+@keyframes rotate{
+		0%{ transform: rotate(0deg) scale(1)}
+		100%{ transform: rotate(360deg) scale(2)}
+}
+input {
+	display:none;
+	& + label {
+		text-align: center;
+	width: 250px;
+	height: 180px;
+	display: block;
+	position: absolute;
+	z-index: 50;
+	transition: all .5s;
+	background-size: cover;
+	cursor: pointer;
+		&:hover {
+			animation: tremur .2s infinite alternate;
+		}
+		& > img{
+			vertical-align: middle;
+			border: 5px solid @color-white;
+			width: 250px;
+			height: 180px;
+			position: relative;
+			top: 30%;
+			transform: translateY(-50%);
+			}
+	}
+	&:checked + label {
+	filter: none;
+	animation: none;
+	width: 97.7%;
+	height: 97.7%;
+	top: -50px;
+	left: 0;
+	z-index: 100;
+	margin: 10px auto;
+		& > img{
+			animation: rotate 1s;
+			animation-fill-mode: forwards;
+		}
+	}
+	&:not(:checked) + label:not(:hover) {
+		filter: grayscale(100%);
+	}
+}
+
+// position des images
+.position-image (@top, @left) {
+	top : @top;
+	left : @left;
+}
+@col1-top : 0;
+@col1-left : 0;
+@img-top : 210px; //distanse entre ligne des images
+@img-left : 280px; //distanse entre colone des images
+
+// appele le mixins pour plasse image
+.label1 { .position-image(@col1-top, @col1-left) }
+.label2 { .position-image(@col1-top, @col1-left+@img-left) }
+.label3 { .position-image(@col1-top, @col1-left+@img-left+@img-left) }
+.label4 { .position-image(@col1-top+@img-top, @col1-left) }
+.label5 { .position-image(@col1-top+@img-top, @col1-left+@img-left) }
+.label6 { .position-image(@col1-top+@img-top, @col1-left+@img-left+@img-left) }
+.label7 { .position-image(@col1-top+@img-top+@img-top, @col1-left) }
+.label8 { .position-image(@col1-top+@img-top+@img-top, @col1-left+@img-left) }
+.label9 { .position-image(@col1-top+@img-top+@img-top, @col1-left+@img-left+@img-left) }
+.label10 { .position-image(@col1-top+@img-top+@img-top+@img-top, @col1-left) }
+.label11 { .position-image(@col1-top+@img-top+@img-top+@img-top, @col1-left+@img-left) }
+.label12 { .position-image(@col1-top+@img-top+@img-top+@img-top, @col1-left+@img-left+@img-left) }
+
